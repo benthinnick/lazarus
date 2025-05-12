@@ -1,18 +1,9 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.6)
 project(TaskManagerServer)
 
-set(CMAKE_CXX_STANDARD 17)
+enable_testing()
 
+find_package(PkgConfig REQUIRED)
 
-# Source files
-set(SOURCES
-    main.cpp
-)
-
-# Build the executable
-
-find_package(Boost REQUIRED)
-
-add_executable(task_server ${SOURCES})
-target_link_libraries(task_server PRIVATE ${Boost_INCLUDE_DIRS})
-
+add_subdirectory(src)
+add_subdirectory(test)
