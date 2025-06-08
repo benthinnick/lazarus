@@ -1,6 +1,10 @@
 set(SOURCES
     main.cpp
     controllers/taskController.cpp
+    controllers/boardController.cpp
+    services/boardService.cpp
+    db/boardRepository.cpp
+    db/db.cpp
     routes/router.cpp
 )
 #Find each required library using pkg-config

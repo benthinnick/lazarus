@@ -5,9 +5,16 @@ set(TESTSOURCES
 )
 add_executable(test_main ${TESTSOURCES})
 
-target_include_directories(test_main PRIVATE ${GTEST_INCLUDE_DIRS})
-target_link_libraries(test_main PRIVATE ${GTEST_LIBRARIES})
+include(FetchContent)
 
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/refs/heads/main.zip
+)
+
+FetchContent_MakeAvailable(googletest)
+
+target_link_libraries(test_main PRIVATE gtest gmock)
 # Link your application libraries
 target_link_libraries(test_main PRIVATE lazaruslib)
 
